@@ -1,0 +1,3 @@
+name=SafeEntryGuard
+description=Provides a safe login experience by making players temporarily protected from zombies on login or game start. Protection time reduces upon movement.
+id=SafeEntryGuard
