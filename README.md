@@ -1,6 +1,16 @@
 # Safe Entry Guard Mod for Project Zomboid
 
-![SafeEntryGuard Logo](SEGlogo.png) 
+![SafeEntryGuard Logo](SEGlogo.png)
+
+## Table of Contents
+- [Disclaimer](#disclaimer)
+- [Description](#description)
+- [Installation](#installation)
+- [Sandbox Options](#sandbox-options)
+- [Differences from Other Mods](#differences-from-other-mods)
+- [Credits](#credits)
+- [License: Fair Use & Agreement](#license-fair-use--agreement)
+
 ## Disclaimer
 
 :warning: **This mod is still under active development.** While we aim to ensure stability, you may encounter unforeseen issues or changes in functionality. Always backup your saves and game data before using. Feedback and bug reports are highly appreciated.
@@ -52,3 +62,12 @@ For questions, suggestions, or collaborations, contact [Hazy Lunar](https://ko-f
 
 **Support & Donations**: Hazy Lunar is open to mod commissions for a small fee under $50, depending on the mod size. Buy them a coffee [here](https://ko-fi.com/hazylunar).
 
+## License: Fair Use & Agreement
+
+This mod, "Safe Entry Guard," is provided as open-source software, free for all to use, modify, and distribute. While you are not obligated to do so, if you use or reference this mod in your own work or projects, we request the following:
+
+1. **Provide Credit**: Acknowledge "Safe Entry Guard" as the source and provide appropriate credit to the author, Hazy Lunar.
+  
+2. **Link Back**: Add a link to the original GitHub repository: [HazyLunar's GitHub](https://github.com/HazyLunar) and the Steam Workshop Collection: [Safe Entry Guard on Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=3018173209).
+    
+By utilizing or referencing this mod, you are agreeing to provide proper attribution as stated above. While not a strict legal requirement, it is a gesture of goodwill and respect for the effort and time the original creator has put into the development of this mod.
