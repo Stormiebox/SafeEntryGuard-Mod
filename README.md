@@ -17,57 +17,54 @@
 
 ## Description
 
-Safe Entry Guard provides a robust protection buffer for players upon their entry into the game. This is designed to ensure players have a short window of immunity from zombie attacks, especially during vulnerable moments when just logging in.
+Safe Entry Guard offers players a temporary protective buffer when entering the game, ensuring they have a fair chance to get oriented before potentially facing the zombie horde.
 
 ### **Key Features:**
-1. **Dual-layer Protection**: Unlike many other safe login mods which solely rely on ghost/invisibility mechanics (often to their detriment), Safe Entry Guard engages two layers of security: player invisibility and disabling zombies from attacking.
+1. **Triple-layer Protection**: Beyond the usual ghost/invisibility mechanics of other mods, Safe Entry Guard provides three layers of security: player invisibility, disabling zombies from attacking, and the new `setGhostMode` functionality.
    
-2. **Dynamic Duration**: If a player moves during their protective window, the duration of protection will automatically adjust, providing a reduced timeframe based on a sandbox-set multiplier.
+2. **Dynamic Duration**: Protection duration automatically adjusts if the player moves during the safety window, providing a shortened time based on a sandbox-defined multiplier.
    
-3. **Sandbox Customization**: Options are integrated directly into the game's sandbox settings, allowing server administrators or single-player users to fine-tune the mod's behavior to their preferences.
-
-4. **Dedicated Logger**: With an in-built debugging logger, users can get varied levels of debugging and information logging, ensuring easy troubleshooting and status tracking.
+3. **Sandbox Customization**: Fully integrated into the game's sandbox settings, allowing for precise mod behavior adjustments according to user preferences.
 
 ## Installation
 
 1. Download the Safe Entry Guard mod.
-2. Place the mod files into your `Project Zomboid/mods/` directory.
-3. Launch the game, go to mods, and enable "Safe Entry Guard".
-4. Adjust sandbox settings as desired.
+2. Transfer the mod files into your `Project Zomboid/mods/` directory.
+3. Launch the game, navigate to mods, and activate "Safe Entry Guard".
+4. Fine-tune sandbox settings to your liking.
 
 ## Sandbox Options
 
-- **Protection Duration**: Set the duration (in seconds) of protection after logging in or starting the game. This duration reduces upon player movement.
+- **Protection Duration**: Determine the duration (in seconds) of protection upon login or game initiation. This duration diminishes if the player moves.
 
-- **Movement Duration Multiplier**: Adjust the multiplier that's applied to the protection duration once the player moves. For instance, a value of 0.5 means the duration is halved upon movement.
+- **Movement Duration Multiplier**: Set the multiplier for the protection duration if the player moves. A value of 0.5, for example, cuts the duration in half after movement.
 
-- **Logger Verbosity Level**: Control the logging details. Ranges from 1 (DEBUG, most verbose) to 5 (CRITICAL, least verbose).
+- **Use Invisibility**: Choose whether to utilize the invisibility feature during the protection phase.
 
 ## Differences from Other Mods
 
-Many safe login mods have tried using an invisibility or "ghost mode" mechanic. However, they've often fallen short due to unreliable implementations. Safe Entry Guard stands out by:
+Several mods employ an invisibility or "ghost mode". However, these often fall short due to inconsistent implementations. Safe Entry Guard distinguishes itself by:
 
-- Implementing two layers of protection for the player.
-- Providing sandbox-adjustable parameters for customization.
-- Including a dedicated debug logger to assist with troubleshooting or mod performance analysis.
+- Offering triple-layered protection.
+- Permitting sandbox modifications for a personalized experience.
 
 ## Credits
 
 - **Author**: Hazy Lunar
-- **Affiliation**: Modder for the Valhalla Community.
+- **Affiliation**: An influential contributor and modder for the Valhalla Community.
   
-Special thanks to the Valhalla Community for their continuous support and feedback. 
+Deep appreciation to the Valhalla Community for their unwavering support and insightful feedback. 
 
-For questions, suggestions, or collaborations, contact [Hazy Lunar](https://ko-fi.com/hazylunar).
+For inquiries, suggestions, or potential collaborations, contact [Hazy Lunar](https://ko-fi.com/hazylunar).
 
-**Support & Donations**: Hazy Lunar is open to mod commissions for a small fee under $50, depending on the mod size. Buy them a coffee [here](https://ko-fi.com/hazylunar).
+**Support & Donations**: Show support to Hazy Lunar. They're available for mod commissions for a modest fee under $50, depending on mod complexity. Buy them a coffee [here](https://ko-fi.com/hazylunar).
 
 ## License: Fair Use & Agreement
 
-This mod, "Safe Entry Guard," is provided as open-source software, free for all to use, modify, and distribute. While you are not obligated to do so, if you use or reference this mod in your own work or projects, we request the following:
+The "Safe Entry Guard" mod is open-source software, available for everyone to use, modify, and share. If you utilize or reference this mod in your work:
 
-1. **Provide Credit**: Acknowledge "Safe Entry Guard" as the source and provide appropriate credit to the author, Hazy Lunar.
+1. **Provide Credit**: Recognize "Safe Entry Guard" as the source and give appropriate acknowledgment to its author, Hazy Lunar.
   
-2. **Link Back**: Add a link to the original GitHub repository: [HazyLunar's GitHub](https://github.com/HazyLunar) and the Steam Workshop Collection: [Safe Entry Guard on Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=3018173209).
+2. **Link Back**: Include a link to the original GitHub repository: [HazyLunar's GitHub](https://github.com/HazyLunar) and the Steam Workshop Collection: [Safe Entry Guard on Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=3018173209).
     
-By utilizing or referencing this mod, you are agreeing to provide proper attribution as stated above. While not a strict legal requirement, it is a gesture of goodwill and respect for the effort and time the original creator has put into the development of this mod.
+By using or referencing this mod, you're adhering to offer the above attributions. While not a strict legal requirement, it's a mark of goodwill and respect for the dedication and hours the original creator invested into this mod's development.
