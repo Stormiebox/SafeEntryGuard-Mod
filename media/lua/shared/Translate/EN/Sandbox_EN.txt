@@ -8,5 +8,11 @@ Sandbox_EN = {
     Sandbox_SafeEntryGuard.MovementMultiplier_tooltip = "Multiplier to the protection duration once the player moves. For example, 0.5 means the duration is halved once the player moves.",
     
     Sandbox_SafeEntryGuard.UseInvisibility = "Use Invisibility",
-    Sandbox_SafeEntryGuard.UseInvisibility_tooltip = "If enabled, players will be made invisible for the duration of protection. If disabled, zombies will simply ignore the player.",
+    Sandbox_SafeEntryGuard.UseInvisibility_tooltip = "If enabled, players will be made invisible for the duration of protection.",
+
+    Sandbox_SafeEntryGuard.UseZombiesDontAttack ="Use Zombies Don't Attack"
+    Sandbox_SafeEntryGuard.UseZombiesDontAttack_tooltip ="If enabled, zombies will not attack players for the duration of protection.",
+
+    Sandbox_SafeEntryGuard.UseGhostMode ="Use Ghost Mode"
+    Sandbox_SafeEntryGuard.UseGhostMode_tooltip ="If enabled, players will be in ghost mode for the duration of protection.",
 }

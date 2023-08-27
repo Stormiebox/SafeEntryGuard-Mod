@@ -30,3 +30,21 @@ option SafeEntryGuard.UseInvisibility
     page = SafeEntryGuard,
     translation = SafeEntryGuard.UseInvisibility,
 }
+
+option SafeEntryGuard.UseZombiesDontAttack
+{
+    type = bool,
+    default = true,
+
+    page = SafeEntryGuard,
+    translation = SafeEntryGuard.UseZombiesDontAttack,
+}
+
+option SafeEntryGuard.UseGhostMode
+{
+    type = bool,
+    default = true,
+
+    page = SafeEntryGuard,
+    translation = SafeEntryGuard.UseGhostMode,
+}

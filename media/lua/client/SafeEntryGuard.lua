@@ -30,7 +30,8 @@ local originalX = 0
 local originalY = 0
 local playerMoved = false
 local useInvisibility = SandboxVars.SafeEntryGuard.UseInvisibility
-local useGhostMode = SandboxVars.SafeEntryGuard.UseGhostMode or false; -- Adding the Ghost Mode variable
+local useZombiesDontAttack = SandboxVars.SafeEntryGuard.UseZombiesDontAttack
+local useGhostMode = SandboxVars.SafeEntryGuard.UseGhostMode
 
 local function playerIsAdmin()
     return isAdmin() or getAccessLevel() == "admin" or getAccessLevel() == "Admin"
@@ -40,8 +41,8 @@ local function halo(player, msg)
     player:setHaloNote(msg, 236, 131, 190, 50)
 end
 
-local function engageProtection(player)
-    if playerIsAdmin() then
+local function engageProtection(player) -- Engage Protection
+    if playerIsAdmin() then -- If Admin, skip protection
         print("[SafeEntryGuard] Admin detected. No additional safety applied.")
         return
     end
@@ -49,36 +50,40 @@ local function engageProtection(player)
     originalY = player:getY()
 
     if useInvisibility then
-        player:setInvisible(true)
-    else
-        player:setZombiesDontAttack(true)
+        player:setInvisible(true) -- Engage Invisibility
+    end
+
+    if useZombiesDontAttack then
+        player:setZombiesDontAttack(true) -- Engage Zombies Don't Attack
     end
 
     if useGhostMode then
         player:setGhostMode(true) -- Engage Ghost Mode
     end
 
-    safeStart = getTimestamp()
+    safeStart = getTimestamp() -- Set Safe Start Time
     print("[SafeEntryGuard] Protection engaged.")
 end
 
-local function disengageProtection(player)
+local function disengageProtection(player) -- Disengage Protection
     if useInvisibility then
-        player:setInvisible(false)
-    else
-        player:setZombiesDontAttack(false)
+        player:setInvisible(false) -- Disengage Invisibility
+    end
+
+    if useZombiesDontAttack then
+        player:setZombiesDontAttack(false) -- Disengage Zombies Don't Attack
     end
 
     if useGhostMode then
         player:setGhostMode(false) -- Disengage Ghost Mode
     end
 
-    Events.OnPlayerUpdate.Remove(SafeEntryGuard_OnPlayerUpdate)
+    Events.OnPlayerUpdate.Remove(SafeEntryGuard_OnPlayerUpdate) -- Remove Player Update Event
     halo(player, getText("IGUI_Halo_ProtectionDisengaged"))
     print("[SafeEntryGuard] Protection disengaged.")
 end
 
-function SafeEntryGuard_OnPlayerUpdate(player)
+function SafeEntryGuard_OnPlayerUpdate(player) -- Player Update Event
     if safeStart == 0 then
         return
     end
