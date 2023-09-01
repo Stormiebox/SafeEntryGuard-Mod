@@ -28,7 +28,9 @@ local safeStart = 0
 local originalX = 0
 local originalY = 0
 local playerMoved = false
-local safeTime = (SandboxVars.SafeEntryGuard.SafeTime == nil) and 30 or SandboxVars.SafeEntryGuard.SafeTime
+local safeTime = (SandboxVars.SafeEntryGuard.SafeTime == nil) and 120 or SandboxVars.SafeEntryGuard.SafeTime
+local movedSafeTime = (SandboxVars.SafeEntryGuard.MovedSafeTime == nil) and 15 or
+SandboxVars.SafeEntryGuard.MovedSafeTime                                                                                   -- Default to 15 seconds
 local useInvisibility = (SandboxVars.SafeEntryGuard.UseInvisibility == nil) and true or
 SandboxVars.SafeEntryGuard.UseInvisibility
 local useZombiesDontAttack = (SandboxVars.SafeEntryGuard.UseZombiesDontAttack == nil) and true or
@@ -93,9 +95,9 @@ function SafeEntryGuard_OnPlayerUpdate(player) -- Player Update Event
     if not playerMoved then
         if player:getX() ~= originalX or player:getY() ~= originalY then
             playerMoved = true
-            safeTime = safeTime * SandboxVars.SafeEntryGuard.MovementMultiplier
-            halo(player, getText("IGUI_SafeEntryGuard_moveCountdown", math.floor(safeTime)))  -- Notify the player about the reduced protection time
-            print("[SafeEntryGuard] Player moved. Protection duration reduced.")
+            safeTime = movedSafeTime                                                         -- Set the protection time after movement
+            halo(player, getText("IGUI_SafeEntryGuard_moveCountdown", math.floor(safeTime))) -- Notify the player about the new protection time after movement
+            print("[SafeEntryGuard] Player moved. Protection duration set to movedSafeTime.")
         end
     end
 

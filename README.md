@@ -3,6 +3,7 @@
 ![SafeEntryGuard Logo](SEGlogo.png)
 
 ## Table of Contents
+
 - [Disclaimer](#disclaimer)
 - [Description](#description)
 - [Installation](#installation)
@@ -13,58 +14,59 @@
 
 ## Disclaimer
 
-:warning: **This mod is still under active development.** While we aim to ensure stability, you may encounter unforeseen issues or changes in functionality. Always backup your saves and game data before using. Feedback and bug reports are highly appreciated.
+:warning: **This mod is still under active development.** While we strive to provide stability, users may still encounter unforeseen issues or variations in functionality. It's advised to backup your saves and game data prior to use. Your feedback and bug reports are invaluable to us.
 
 ## Description
 
-Safe Entry Guard offers players a temporary protective buffer when entering the game, ensuring they have a fair chance to get oriented before potentially facing the zombie horde.
+The Safe Entry Guard Mod ensures players have a buffer of protection when initiating the game, granting a moment to acclimate before potentially confronting a zombie onslaught.
 
 ### **Key Features:**
-1. **Triple-layer Protection**: Beyond the usual ghost/invisibility mechanics of other mods, Safe Entry Guard provides three layers of security: player invisibility, disabling zombies from attacking, and the new `setGhostMode` functionality.
-   
-2. **Dynamic Duration**: Protection duration automatically adjusts if the player moves during the safety window, providing a shortened time based on a sandbox-defined multiplier.
-   
-3. **Sandbox Customization**: Fully integrated into the game's sandbox settings, allowing for precise mod behavior adjustments according to user preferences.
+
+1. **Triple-layer Protection**: Safe Entry Guard goes above and beyond by offering three layers of security - player invisibility, preventing zombies from attacking, and the revolutionary `setGhostMode` feature.
+
+2. **Dynamic Duration**: The protection period dynamically adjusts when the player moves during the safety period. This adjustment relies on a sandbox-defined multiplier.
+
+3. **Sandbox Customization**: A seamless integration into the game's sandbox options, letting players dictate the mod's behavior to suit their gameplay style.
 
 ## Installation
 
-1. Download the Safe Entry Guard mod.
-2. Transfer the mod files into your `Project Zomboid/mods/` directory.
-3. Launch the game, navigate to mods, and activate "Safe Entry Guard".
-4. Fine-tune sandbox settings to your liking.
+1. Secure a copy of the Safe Entry Guard mod.
+2. Transfer the mod contents into the `Project Zomboid/mods/` directory.
+3. Fire up the game, venture to mods, and activate "Safe Entry Guard".
+4. Adjust sandbox settings as per your requirements.
 
 ## Sandbox Options
 
-- **Protection Duration**: Determine the duration (in seconds) of protection upon login or game initiation. This duration diminishes if the player moves.
+- **Protection Duration**: Designate the protective period (in seconds) upon game entry. This time frame reduces if the player decides to move.
 
-- **Movement Duration Multiplier**: Set the multiplier for the protection duration if the player moves. A value of 0.5, for example, cuts the duration in half after movement.
+- **Movement Duration Multiplier**: Assign the multiplier to determine the protective span if the player mobilizes. For instance, 0.5 signifies halving the time upon movement.
 
-- **Use Invisibility**: Choose whether to utilize the invisibility feature during the protection phase.
+- **Use Invisibility**: Option to trigger the invisibility feature throughout the protection phase.
 
 ## Differences from Other Mods
 
-Several mods employ an invisibility or "ghost mode". However, these often fall short due to inconsistent implementations. Safe Entry Guard distinguishes itself by:
+While many mods utilize invisibility or a "ghost mode", they often falter due to irregular executions. Safe Entry Guard sets itself apart by:
 
-- Offering triple-layered protection.
-- Permitting sandbox modifications for a personalized experience.
+- Providing a robust triple-layered defense mechanism.
+- Allowing users to tweak sandbox settings, tailoring a unique gaming experience.
 
 ## Credits
 
 - **Author**: Hazy Lunar
-- **Affiliation**: An influential contributor and modder for the Valhalla Community.
+- **Affiliation**: A prominent contributor and adept modder under the banner of the Valhalla Community.
   
-Deep appreciation to the Valhalla Community for their unwavering support and insightful feedback. 
+Sincere thanks to the Valhalla Community for their undying support and invaluable feedback.
 
-For inquiries, suggestions, or potential collaborations, contact [Hazy Lunar](https://ko-fi.com/hazylunar).
+For any queries, propositions, or potential partnerships, reach out to [Hazy Lunar](https://ko-fi.com/hazylunar).
 
-**Support & Donations**: Show support to Hazy Lunar. They're available for mod commissions for a modest fee under $50, depending on mod complexity. Buy them a coffee [here](https://ko-fi.com/hazylunar).
+**Support & Donations**: Stand by Hazy Lunar. They're up for mod commissions at a reasonable fee under $50, contingent on the mod's intricacy. Extend your support [here](https://ko-fi.com/hazylunar).
 
 ## License: Fair Use & Agreement
 
-The "Safe Entry Guard" mod is open-source software, available for everyone to use, modify, and share. If you utilize or reference this mod in your work:
+"Safe Entry Guard" mod stands as open-source software, available to all for use, adapt, and distribution. Should you decide to employ or cite this mod in your endeavors:
 
-1. **Provide Credit**: Recognize "Safe Entry Guard" as the source and give appropriate acknowledgment to its author, Hazy Lunar.
+1. **Offer Credit**: Attribute "Safe Entry Guard" as the genesis and render due recognition to its creator, Hazy Lunar.
   
-2. **Link Back**: Include a link to the original GitHub repository: [HazyLunar's GitHub](https://github.com/HazyLunar) and the Steam Workshop Collection: [Safe Entry Guard on Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=3018173209).
-    
-By using or referencing this mod, you're adhering to offer the above attributions. While not a strict legal requirement, it's a mark of goodwill and respect for the dedication and hours the original creator invested into this mod's development.
+2. **Provide Links**: Incorporate links to the foundational GitHub repository: [HazyLunar's GitHub](https://github.com/HazyLunar) and its Steam Workshop Collection: [Safe Entry Guard on Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=3018173209).
+
+By opting to use or reference this mod, you commit to the aforestated citations. While this isn't a binding legal requisite, it stands as a testament to goodwill and homage to the dedication and time expended by the original developer.

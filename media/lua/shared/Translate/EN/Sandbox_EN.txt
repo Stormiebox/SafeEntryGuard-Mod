@@ -4,8 +4,8 @@ Sandbox_EN = {
     Sandbox_SafeEntryGuard.SafeTime = "Protection Duration",
     Sandbox_SafeEntryGuard.SafeTime_tooltip = "Duration (in seconds) of protection after login or game start. Reduces upon movement.",
     
-    Sandbox_SafeEntryGuard.MovementMultiplier = "Movement Duration Multiplier",
-    Sandbox_SafeEntryGuard.MovementMultiplier_tooltip = "Multiplier to the protection duration once the player moves. For example, 0.5 means the duration is halved once the player moves.",
+    Sandbox_SafeEntryGuard.MovedSafeTime = "Protection Duration After Movement",
+    Sandbox_SafeEntryGuard.MovedSafeTime_tooltip = "The amount of time (in seconds) a player is protected for after they move. For example, setting this to 15 means the player has 15 seconds of protection once they move.",
     
     Sandbox_SafeEntryGuard.UseInvisibility = "Use Invisibility",
     Sandbox_SafeEntryGuard.UseInvisibility_tooltip = "If enabled, players will be made invisible for the duration of protection.",
