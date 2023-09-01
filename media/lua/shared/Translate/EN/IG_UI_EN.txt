@@ -1,0 +1,5 @@
+IG_UI_EN = {
+    IGUI_SafeEntryGuard_countdown = "Protection ends in %1 seconds!",
+    IGUI_SafeEntryGuard_moveCountdown = "You moved, protection has been lowered to %1 seconds!",
+    IGUI_SafeEntryGuard_noProtection = "Protection deactivated!",
+}

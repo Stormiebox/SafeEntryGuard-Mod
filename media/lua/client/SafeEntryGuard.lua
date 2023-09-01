@@ -25,13 +25,16 @@
 ]]
 -- SafeEntryGuard Mod
 local safeStart = 0
-local safeTime = SandboxVars.SafeEntryGuard.SafeTime
 local originalX = 0
 local originalY = 0
 local playerMoved = false
-local useInvisibility = SandboxVars.SafeEntryGuard.UseInvisibility
-local useZombiesDontAttack = SandboxVars.SafeEntryGuard.UseZombiesDontAttack
-local useGhostMode = SandboxVars.SafeEntryGuard.UseGhostMode
+local safeTime = (SandboxVars.SafeEntryGuard.SafeTime == nil) and 30 or SandboxVars.SafeEntryGuard.SafeTime
+local useInvisibility = (SandboxVars.SafeEntryGuard.UseInvisibility == nil) and true or
+SandboxVars.SafeEntryGuard.UseInvisibility
+local useZombiesDontAttack = (SandboxVars.SafeEntryGuard.UseZombiesDontAttack == nil) and true or
+SandboxVars.SafeEntryGuard.UseZombiesDontAttack
+local useGhostMode = (SandboxVars.SafeEntryGuard.UseGhostMode == nil) and true or SandboxVars.SafeEntryGuard
+.UseGhostMode
 
 local function playerIsAdmin()
     return isAdmin() or getAccessLevel() == "admin" or getAccessLevel() == "Admin"
@@ -79,7 +82,7 @@ local function disengageProtection(player) -- Disengage Protection
     end
 
     Events.OnPlayerUpdate.Remove(SafeEntryGuard_OnPlayerUpdate) -- Remove Player Update Event
-    halo(player, getText("IGUI_Halo_ProtectionDisengaged"))
+    halo(player, getText("IGUI_SafeEntryGuard_noProtection"))
     print("[SafeEntryGuard] Protection disengaged.")
 end
 
@@ -91,15 +94,17 @@ function SafeEntryGuard_OnPlayerUpdate(player) -- Player Update Event
         if player:getX() ~= originalX or player:getY() ~= originalY then
             playerMoved = true
             safeTime = safeTime * SandboxVars.SafeEntryGuard.MovementMultiplier
+            halo(player, getText("IGUI_SafeEntryGuard_moveCountdown", math.floor(safeTime)))  -- Notify the player about the reduced protection time
             print("[SafeEntryGuard] Player moved. Protection duration reduced.")
         end
     end
+
     local elapsedSafeTime = getTimestamp() - safeStart
     local remainingSafeTime = safeTime - elapsedSafeTime
     if remainingSafeTime <= 0 then
         disengageProtection(player)
     else
-        halo(player, getText("IGUI_Halo_YouAreProtectedFor", math.floor(remainingSafeTime)))
+        halo(player, getText("IGUI_SafeEntryGuard_countdown", math.floor(remainingSafeTime)))
     end
 end
 

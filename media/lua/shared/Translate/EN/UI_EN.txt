@@ -1,5 +1,0 @@
-UI_EN = {
-    UI_SafeEntryGuard_countdown = "Protection ends in %1 seconds!",
-    UI_SafeEntryGuard_moveCountdown = "You moved, protection has been lowered to %1 seconds!",
-    UI_SafeEntryGuard_noProtection = "Protection deactivated!",
-}
