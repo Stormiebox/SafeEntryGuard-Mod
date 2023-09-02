@@ -53,9 +53,6 @@ While many mods utilize invisibility or a "ghost mode", they often falter due to
 ## Credits
 
 - **Author**: Hazy Lunar
-- **Affiliation**: A prominent contributor and adept modder under the banner of the Valhalla Community.
-  
-Sincere thanks to the Valhalla Community for their undying support and invaluable feedback.
 
 For any queries, propositions, or potential partnerships, reach out to [Hazy Lunar](https://ko-fi.com/hazylunar).
 
