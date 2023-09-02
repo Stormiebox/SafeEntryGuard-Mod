@@ -22,7 +22,7 @@ The Safe Entry Guard Mod ensures players have a buffer of protection when initia
 
 ### **Key Features:**
 
-1. **Triple-layer Protection**: Safe Entry Guard goes above and beyond by offering three layers of security - player invisibility, preventing zombies from attacking, and the revolutionary `setGhostMode` feature.
+1. **Triple-layer Protection**: Safe Entry Guard goes above and beyond by offering three layers of security - player invisibility, preventing zombies from attacking and Ghost Mode.
 
 2. **Dynamic Duration**: The protection period dynamically adjusts when the player moves during the safety period. This adjustment relies on a sandbox-defined multiplier.
 
