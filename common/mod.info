@@ -1,0 +1,8 @@
+name=Safe Entry Guard (B42)
+id=SafeEntryGuard_B42
+description=Provides a quadruple-layer safe login experience (Invisibility, Ghost Mode, God Mode, Zombie Ignorance). Prevents instant deaths on login. Fully optimized for Build 42.
+poster=poster.png
+icon=icon.png
+author=Stormbox
+pzversion=42
+versionMin=42.0

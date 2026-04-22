@@ -1,3 +1,6 @@
-name=SafeEntryGuard
-description=Provides a safe login experience by making players temporarily protected from zombies on login or game start. Protection time reduces upon movement.
+name=Safe Entry Guard (B41)
 id=SafeEntryGuard
+description=Provides a quadruple-layer safe login experience (Invisibility, Ghost Mode, God Mode, Zombie Ignorance). Prevents instant deaths on login.
+poster=poster.png
+versionMin=41.0
+versionMax=41.78
