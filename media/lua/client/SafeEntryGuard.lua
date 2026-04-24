@@ -41,11 +41,22 @@ end
 
 -- Applies or removes the quadruple-layer protection modifiers based on sandbox settings
 function ProtectionSystem.ApplyModifiers(playerObj, enable)
-    local options = SandboxVars.SafeEntryGuard
-    if options.UseInvisibility ~= false then playerObj:setInvisible(enable) end
-    if options.UseZombiesDontAttack ~= false then playerObj:setZombiesDontAttack(enable) end
-    if options.UseGhostMode ~= false then playerObj:setGhostMode(enable) end
-    if options.UseGodMode ~= false then playerObj:setGodMod(enable) end
+    local options = SandboxVars.SafeEntryGuard or {}
+
+    -- Wrap in pcalls because certain admin methods (like setGodMod) 
+    -- may be restricted or removed from client-side Lua exposure in Multiplayer.
+    if options.UseInvisibility ~= false then 
+        pcall(function() playerObj:setInvisible(enable) end) 
+    end
+    if options.UseZombiesDontAttack ~= false then 
+        pcall(function() playerObj:setZombiesDontAttack(enable) end) 
+    end
+    if options.UseGhostMode ~= false then 
+        pcall(function() playerObj:setGhostMode(enable) end) 
+    end
+    if options.UseGodMode ~= false then 
+        pcall(function() playerObj:setGodMod(enable) end) 
+    end
 end
 
 -- Initializes the protection phase for a specific player instance

@@ -41,11 +41,22 @@ end
 
 -- Applies or removes the quadruple-layer protection modifiers based on sandbox settings
 function ProtectionSystem.ApplyModifiers(playerObj, enable)
-    local options = SandboxVars.SafeEntryGuard
-    if options.UseInvisibility ~= false then playerObj:setInvisible(enable) end
-    if options.UseZombiesDontAttack ~= false then playerObj:setZombiesDontAttack(enable) end
-    if options.UseGhostMode ~= false then playerObj:setGhostMode(enable) end
-    if options.UseGodMode ~= false then playerObj:setGodMod(enable) end
+    local options = SandboxVars.SafeEntryGuard or {}
+
+    -- Wrap in pcalls because certain admin methods (like setGodMod)
+    -- may be restricted or removed from client-side Lua exposure in Multiplayer.
+    if options.UseInvisibility ~= false then
+        pcall(function() playerObj:setInvisible(enable) end)
+    end
+    if options.UseZombiesDontAttack ~= false then
+        pcall(function() playerObj:setZombiesDontAttack(enable) end)
+    end
+    if options.UseGhostMode ~= false then
+        pcall(function() playerObj:setGhostMode(enable) end)
+    end
+    if options.UseGodMode ~= false then
+        pcall(function() playerObj:setGodMod(enable) end)
+    end
 end
 
 -- Initializes the protection phase for a specific player instance
@@ -57,7 +68,7 @@ function ProtectionSystem.Initiate(playerObj)
 
     local pNum = playerObj:getPlayerNum()
     local initialDuration = SandboxVars.SafeEntryGuard.SafeTime or 120
-    
+
     -- Store player-specific state data for robust splitscreen/co-op compatibility
     ProtectionSystem.Players[pNum] = {
         isShielded = true,
@@ -80,13 +91,13 @@ end
 function ProtectionSystem.Terminate(playerObj)
     local pNum = playerObj:getPlayerNum()
     local pData = ProtectionSystem.Players[pNum]
-    
+
     if not pData or not pData.isShielded then return end
     pData.isShielded = false
 
     -- Revoke the protection modifiers
     ProtectionSystem.ApplyModifiers(playerObj, false)
-    
+
     ProtectionSystem.ShowText(playerObj, "IGUI_SafeEntryGuard_noProtection")
     print("[SafeEntryGuard] Protection systems deactivated for player " .. tostring(pNum))
 end
@@ -117,12 +128,12 @@ function ProtectionSystem.OnUpdate(playerObj)
         -- This prevents micro-movements (like breathing animations) from falsely triggering the penalty
         local diffX = playerObj:getX() - pData.startX
         local diffY = playerObj:getY() - pData.startY
-        
+
         -- 0.1 threshold confirms actual locational movement
         if (diffX * diffX) + (diffY * diffY) > 0.1 then
             pData.movementPenaltyApplied = true
             local penaltyTime = SandboxVars.SafeEntryGuard.MovedSafeTime or 15
-            
+
             -- Recalibrate the expiration timestamp based on the penalty
             pData.shieldExpiresAt = currentSec + penaltyTime
             secondsRemaining = penaltyTime
