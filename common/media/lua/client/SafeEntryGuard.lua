@@ -71,6 +71,7 @@ function ProtectionSystem.Initiate(playerObj)
 
     -- Store player-specific state data for robust splitscreen/co-op compatibility
     ProtectionSystem.Players[pNum] = {
+        modifiersApplied = false,
         isShielded = true,
         shieldExpiresAt = getTimestamp() + initialDuration,
         startX = playerObj:getX(),
@@ -79,9 +80,8 @@ function ProtectionSystem.Initiate(playerObj)
         lastTimeDisplayed = -1
     }
 
-    -- Apply the selected protection modifiers
-    ProtectionSystem.ApplyModifiers(playerObj, true)
-    print("[SafeEntryGuard] Protection systems activated for player " .. tostring(pNum))
+    -- Modifiers are deferred to OnUpdate to ensure player inventory is fully initialized
+    print("[SafeEntryGuard] Protection sequence queued for player " .. tostring(pNum))
 
     Events.OnPlayerUpdate.Remove(ProtectionSystem.OnUpdate)
     Events.OnPlayerUpdate.Add(ProtectionSystem.OnUpdate)
@@ -108,6 +108,12 @@ function ProtectionSystem.OnUpdate(playerObj)
     local pData = ProtectionSystem.Players[pNum]
 
     if not pData or not pData.isShielded then return end
+
+    -- Apply the protective modifiers on the first tick to prevent NullPointerExceptions
+    if not pData.modifiersApplied then
+        ProtectionSystem.ApplyModifiers(playerObj, true)
+        pData.modifiersApplied = true
+    end
 
     -- Combat Cancellation: If the player attacks, instantly revoke protection
     if playerObj:isAttacking() then
