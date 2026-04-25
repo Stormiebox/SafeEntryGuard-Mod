@@ -29,19 +29,28 @@ ProtectionSystem.Players = {} -- Tracks states dynamically for split-screen/co-o
 
 -- Checks if the player possesses admin privileges and should bypass protection
 function ProtectionSystem.IsExempt(playerObj)
-    local role = getAccessLevel()
-    return isAdmin() or role == "admin" or role == "Admin"
+    local role = getAccessLevel and getAccessLevel() or ""
+    local adminCheck = isAdmin and isAdmin() or false
+    return adminCheck or role == "admin" or role == "Admin"
 end
 
 -- Utility function to render floating Halo text above the player
 function ProtectionSystem.ShowText(playerObj, textKey, ...)
-    local text = getText(textKey, ...)
+    if not playerObj then
+        return
+    end
+
+    local text = getText and getText(textKey, ...) or tostring(textKey)
     playerObj:setHaloNote(text, 236, 131, 190, 50)
 end
 
 -- Applies or removes the quadruple-layer protection modifiers based on sandbox settings
 function ProtectionSystem.ApplyModifiers(playerObj, enable)
-    local options = SandboxVars.SafeEntryGuard or {}
+    if not playerObj then
+        return
+    end
+
+    local options = SandboxVars and SandboxVars.SafeEntryGuard or {}
 
     -- Wrap in pcalls because certain admin methods (like setGodMod) 
     -- may be restricted or removed from client-side Lua exposure in Multiplayer.
@@ -67,7 +76,7 @@ function ProtectionSystem.Initiate(playerObj)
     end
 
     local pNum = playerObj:getPlayerNum()
-    local initialDuration = SandboxVars.SafeEntryGuard.SafeTime or 120
+    local initialDuration = (SandboxVars and SandboxVars.SafeEntryGuard and SandboxVars.SafeEntryGuard.SafeTime) or 120
     
     -- Store player-specific state data for robust splitscreen/co-op compatibility
     ProtectionSystem.Players[pNum] = {
@@ -89,6 +98,10 @@ end
 
 -- Deactivates the protection phase and cleans up the player's state
 function ProtectionSystem.Terminate(playerObj)
+    if not playerObj then
+        return
+    end
+
     local pNum = playerObj:getPlayerNum()
     local pData = ProtectionSystem.Players[pNum]
     
@@ -104,6 +117,10 @@ end
 
 -- Core tick function executing every frame to monitor player state
 function ProtectionSystem.OnUpdate(playerObj)
+    if not playerObj then
+        return
+    end
+
     local pNum = playerObj:getPlayerNum()
     local pData = ProtectionSystem.Players[pNum]
 
@@ -138,7 +155,7 @@ function ProtectionSystem.OnUpdate(playerObj)
         -- 0.1 threshold confirms actual locational movement
         if (diffX * diffX) + (diffY * diffY) > 0.1 then
             pData.movementPenaltyApplied = true
-            local penaltyTime = SandboxVars.SafeEntryGuard.MovedSafeTime or 15
+            local penaltyTime = (SandboxVars and SandboxVars.SafeEntryGuard and SandboxVars.SafeEntryGuard.MovedSafeTime) or 15
             
             -- Recalibrate the expiration timestamp based on the penalty
             pData.shieldExpiresAt = currentSec + penaltyTime
@@ -158,14 +175,17 @@ function ProtectionSystem.OnUpdate(playerObj)
     -- Render overhead text throttled to 1-second intervals
     if secondsRemaining ~= pData.lastTimeDisplayed then
         pData.lastTimeDisplayed = secondsRemaining
-        if not (pData.movementPenaltyApplied and secondsRemaining == (SandboxVars.SafeEntryGuard.MovedSafeTime or 15)) then
+        if not (pData.movementPenaltyApplied and secondsRemaining == ((SandboxVars and SandboxVars.SafeEntryGuard and SandboxVars.SafeEntryGuard.MovedSafeTime) or 15)) then
             ProtectionSystem.ShowText(playerObj, "IGUI_SafeEntryGuard_countdown", secondsRemaining)
         end
     end
 end
 
 Events.OnGameStart.Add(function()
-    ProtectionSystem.Initiate(getPlayer())
+    local playerObj = getPlayer and getPlayer() or nil
+    if playerObj then
+        ProtectionSystem.Initiate(playerObj)
+    end
 end)
 
 -- Trigger protection on respawn as well
